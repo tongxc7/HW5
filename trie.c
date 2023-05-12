@@ -1,6 +1,6 @@
 /* Copyright [2023] <Tongxin Chen>"  [legal/copyright]    
     Author: Tongxin Chen
-    UWNetID: tongxc
+    UWNetID: tongxc (2068798)
     Assignment: Homework5 trie.c
     Date: May 12, 2023
 */ 
