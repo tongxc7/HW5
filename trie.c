@@ -1,6 +1,6 @@
 /* Copyright [2023] <Tongxin Chen>"  [legal/copyright]    
     Author: Tongxin Chen
-    UWNetID: tongxc (2068798)
+    UWNetID: tongxc
     Assignment: Homework5 trie.c
     Date: May 12, 2023
 */ 
@@ -27,9 +27,9 @@ int get_key(char character);
 trieNode* build_tree(FILE *dict) {
     trieNode* node = make_node();
     char cur_word[MAXLEN];
+    int key = 10;
     while (fgets(cur_word, MAXLEN, dict) != NULL) {
         int word_length = strlen(cur_word);
-        int key;
         for (int j = 0; j < word_length - 1; j++) {
             key = get_key(cur_word[j]) - 1;
             if (node->branches[key] == NULL) {
@@ -38,8 +38,8 @@ trieNode* build_tree(FILE *dict) {
             node = node->branches[key];
         }
         // The key for the last character
-        key = get_key(cur_word[word_length - 1]) - 1;
-        node = node->branches[key];
+        int last_key = get_key(cur_word[word_length - 1]) - 1;
+        node = node->branches[last_key];
         // Check if a word with the same numeric sequence already exists
         while (node->word != NULL) {
             node->branches[key] = make_node();  // make new branches
